@@ -1,4 +1,4 @@
-class Turns {
+class Turn {
   constructor(userAnswer, currentCard) {
     this.userAnswer = userAnswer;
     this.currentCard = currentCard;
@@ -24,4 +24,5 @@ class Turns {
     }
   }
 }
-module.exports = Turns;
+
+module.exports = Turn;
