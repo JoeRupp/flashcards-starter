@@ -10,7 +10,7 @@ describe('Turn', function() {
   let turn1;
   let turn2;
   
-  this.beforeEach(() => {
+  beforeEach(() => {
     card = new Card(1, 'Test question', ['Correct Aaswer', 'Wrong answer'], 'Correct answer');
     turn1 = new Turn('Correct answer', card);
     turn2 = new Turn('Wrong answer', card);
