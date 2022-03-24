@@ -1,26 +1,15 @@
 const chai = require('chai');
 const expect = chai.expect;
 
+const data = require('../src/data');
 const Game = require('../src/Game');
 const Round = require('../src/Round');
-const Deck = require('../src/Deck');
-const Card = require('../src/Card');
 
 describe('Game', function() {
 
-  let card1;
-  let card2;
-  let card3;
-  let deck;
-  let round;
   let game;
   
   beforeEach(() => {
-    card1 = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
-    card2 = new Card(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
-    card3 = new Card(12, 'What is Travis\'s favorite stress reliever?', ['listening to music', 'watching Netflix', 'playing with bubble wrap'], 'playing with bubble wrap');
-    deck = new Deck([card1, card2, card3]);
-    round = new Round(deck);
     game = new Game();
   });
 
@@ -28,38 +17,39 @@ describe('Game', function() {
     expect(Game).to.be.a('function');
   });
 
-  it('should be an instance of Round', function() {
+  it('should be an instance of Game', function() {
     expect(game).to.be.an.instanceOf(Game);
   });
 
   it('should keep track of the currentRound', function() {
-    // game.start()
+    game.testStart()
 
-    expect().to.equal();
+    expect(game.currentRound).to.be.an.instanceOf(Round)
   });
 
-  it.skip('should use the start method to create Cards', function() {
-    
-    expect().to.equal();
+  it('should use the start method to create instances of Card', function() {
+    game.testStart()
+
+    expect(game.currentRound.deck.cards[0]).to.deep.equal(data.prototypeData[0]);
+    expect(game.currentRound.deck.cards[15]).to.deep.equal(data.prototypeData[15]);
+    expect(game.currentRound.deck.cards.length).to.equal(data.prototypeData.length);
   });
 
-  it.skip('should use the start method to put the Cards in a Deck', function() {
-    
-    expect().to.equal();
+  it('should use the start method to create an instance of Deck', function() {
+    game.testStart()
+
+    expect(game.currentRound.deck).to.exist;
   });
 
-  it.skip('should use the start method to create a new Round using the Deck', function() {
-    
-    expect().to.equal();
-  });
+  it('should use the start method to create a new Round with turns', function() {
+    game.testStart()
+    game.currentRound.takeTurn('wrong answer 1')
 
-  it.skip('should use the start method to invoke the pintMessage to display on the CLI', function() {
-    
-    expect().to.equal();
-  });
+    expect(game.currentRound.turns).to.equal(1)
 
-  it.skip('should use the start method to invoke the pintQuestion to kick off our helper functions that allow interaction via the CLI', function() {
-    
-    expect().to.equal();
+    game.currentRound.takeTurn('wrong answer 2')
+    game.currentRound.takeTurn('wrong answer 3')
+
+    expect(game.currentRound.turns).to.equal(3)
   });
 });

@@ -84,7 +84,9 @@ describe('Round', function() {
   it('should have a method that returns "** Round over! ** You answered <>% of the questions correctly!"', function() {
     round.takeTurn('sea otter');
     round.takeTurn('spleen');
-    
+
+    console.log = function() {}
+   
     expect(round.endRound()).to.equal(`** Round over! ** You answered 50% of the questions correctly!`);
   });
 });
