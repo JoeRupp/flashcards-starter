@@ -19,20 +19,19 @@ class Game {
       util.main(round);
   }
 
-  start() {
-    const cards = prototypeQuestions.map((card) => new Card(card.id, card.question, card.answers, card.correctAnswer));
-    const deck = new Deck(cards);
-    const round = new Round(deck);
-    this.currentRound = round;
-    this.printMessage(deck, round);
-    this.printQuestion(round);
-  };
-
   testStart() {
     const cards = prototypeQuestions.map((card) => new Card(card.id, card.question, card.answers, card.correctAnswer));
     const deck = new Deck(cards);
     const round = new Round(deck);
     this.currentRound = round;
+  };
+
+  start() {
+    this.testStart();
+    const deck = this.currentRound.deck;
+    const round = this.currentRound;
+    this.printMessage(deck, round);
+    this.printQuestion(round);
   };
 }
 
