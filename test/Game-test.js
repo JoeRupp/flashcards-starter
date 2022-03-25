@@ -5,7 +5,7 @@ const data = require('../src/data');
 const Game = require('../src/Game');
 const Round = require('../src/Round');
 
-describe('Game', function() {
+describe('Game', () => {
 
   let game;
   
@@ -13,21 +13,21 @@ describe('Game', function() {
     game = new Game();
   });
 
-  it('should be a function', function() {
+  it('should be a function', () => {
     expect(Game).to.be.a('function');
   });
 
-  it('should be an instance of Game', function() {
+  it('should be an instance of Game', () => {
     expect(game).to.be.an.instanceOf(Game);
   });
 
-  it('should keep track of the currentRound', function() {
+  it('should keep track of the currentRound', () => {
     game.testStart()
 
     expect(game.currentRound).to.be.an.instanceOf(Round)
   });
 
-  it('should use the start method to create instances of Card', function() {
+  it('should use the start method to create instances of Card', () => {
     game.testStart()
 
     expect(game.currentRound.deck.cards[0]).to.deep.equal(data.prototypeData[0]);
@@ -35,13 +35,13 @@ describe('Game', function() {
     expect(game.currentRound.deck.cards.length).to.equal(data.prototypeData.length);
   });
 
-  it('should use the start method to create an instance of Deck', function() {
+  it('should use the start method to create an instance of Deck', () => {
     game.testStart()
 
     expect(game.currentRound.deck).to.exist;
   });
 
-  it('should use the start method to create a new Round with turns', function() {
+  it('should use the start method to create a new Round with turns', () => {
     game.testStart()
     game.currentRound.takeTurn('wrong answer 1')
 

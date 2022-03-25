@@ -4,7 +4,7 @@ const expect = chai.expect;
 const Deck = require('../src/Deck');
 const Card = require('../src/Card');
 
-describe('Deck', function() {
+describe('Deck', () => {
 
   let card1;
   let card2;
@@ -18,20 +18,20 @@ describe('Deck', function() {
     deck = new Deck([card1, card2, card3]);
   });
 
-  it('should be a function', function() {
+  it('should be a function', () => {
     expect(Deck).to.be.a('function');
   });
 
-  it('should be an instance of Deck', function() {
+  it('should be an instance of Deck', () => {
     expect(deck).to.be.an.instanceOf(Deck);
   });
 
-  it('should include an array of cards', function() {
+  it('should include an array of cards', () => {
     expect(deck.cards).to.be.a('array');
     expect(deck.cards).to.have.lengthOf(3);
   });
 
-  it('should have a method to return the card count', function() {
+  it('should have a method to return the card count', () => {
     expect(deck.countCards()).to.equal(3);
   });
 });

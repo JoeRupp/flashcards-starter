@@ -8,16 +8,16 @@ const util = require('./util');
 class Game {
   constructor() {
     this.currentRound;
-  }
+  };
 
   printMessage(deck, round) {
     console.log(`Welcome to FlashCards! You are playing with ${deck.countCards()} cards.
 -----------------------------------------------------------------------`)
-  }
+  };
 
   printQuestion(round) {
       util.main(round);
-  }
+  };
 
   testStart() {
     const cards = prototypeQuestions.map((card) => new Card(card.id, card.question, card.answers, card.correctAnswer));
@@ -33,6 +33,6 @@ class Game {
     this.printMessage(deck, round);
     this.printQuestion(round);
   };
-}
+};
 
 module.exports = Game;
