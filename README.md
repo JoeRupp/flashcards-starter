@@ -11,7 +11,9 @@ After the user has gone through all 30 cards, a message will be displayed with t
 
 ### Technologies
 Made with - JavaScript
+
 Built using - Mac Terminal | VS Code
+
 Tested using - Mocah | Chai
 
 ### Install/Setup
